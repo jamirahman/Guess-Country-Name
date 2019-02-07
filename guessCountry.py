@@ -238,16 +238,18 @@ Zimbabwe'''
         print(' '.join(blank_space))
 
         count=0
+        _try=0
 
         while(count!=life):
             letter=input('Guess the letter to reveal the country!! :  ')
+            _try+=1
             letter=letter.upper()
 
             if letter in country:
                 put_letter(blank_space,country, letter)
                 print(' '.join(blank_space))
                 if '_ ' not in blank_space:
-                    print('\nCongrtas!! Your guess is right.')
+                    print('\nCongrtas!! Your guess is right & it took',_try,'attempt.')
                     count=life
 
             #if letter not in country_letter:
@@ -260,7 +262,8 @@ Zimbabwe'''
                     print("\nWrong Guess!!! You have one life left. Play carefully!!!\n")
                     print(' '.join(blank_space))
                 else:
-                    print('\nSorry! You have failed. It was',country)
+                    print('\nSorry! You have failed. It was',country,)
+                    print('You took',_try,'attempt.')
                     break
 
         print('\n\n\n\n')
