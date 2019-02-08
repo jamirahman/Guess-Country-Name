@@ -46,6 +46,8 @@ if key=='y' or key=='Y':
         life=10
         print('You entered wrong keyword. Play now by default in easy mode.\n')
 
+    alphabet='ABCDEFGHIJKLMNOPQRSTUVWXYZ'
+
     # COUNTRIES
 
     country_list='''Afghanistan
@@ -240,20 +242,32 @@ Zimbabwe'''
         count=0
         _try=0
 
+        #MAIN GAME ITERATION
         while(count!=life):
             letter=input('Guess the letter to reveal the country!! :  ')
-            _try+=1
             letter=letter.upper()
 
-            if letter in country:
+            if letter not in alphabet or letter=='':
+                print('Wrong Keyword. Use only alphabet.')
+                print(' '.join(blank_space))
+                continue
+
+            elif letter in blank_space:
+                print('You already used it once')
+                print(' '.join(blank_space))
+                continue
+
+            elif letter in country:
+                _try += 1
                 put_letter(blank_space,country, letter)
                 print(' '.join(blank_space))
                 if '_ ' not in blank_space:
                     print('\nCongrtas!! Your guess is right & it took',_try,'attempt.')
                     count=life
 
-            #if letter not in country_letter:
+            #if letter not in country
             else:
+                _try += 1
                 count+=1
                 if count<life-1:
                     print('{0:^45}'.format("Wrong Guess!!!"))
@@ -265,6 +279,7 @@ Zimbabwe'''
                     print('\nSorry! You have failed. It was',country,)
                     print('You took',_try,'attempt.')
                     break
+
 
         print('\n\n\n\n')
         key=input("Do you want to try again? If yes enter 'y' nor any other key: ")
