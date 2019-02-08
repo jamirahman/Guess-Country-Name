@@ -241,6 +241,7 @@ Zimbabwe'''
 
         count=0
         _try=0
+        used_letters=''
 
         #MAIN GAME ITERATION
         while(count!=life):
@@ -252,7 +253,7 @@ Zimbabwe'''
                 print(' '.join(blank_space))
                 continue
 
-            elif letter in blank_space:
+            elif letter in used_letters:
                 print('You already used it once')
                 print(' '.join(blank_space))
                 continue
@@ -280,6 +281,7 @@ Zimbabwe'''
                     print('You took',_try,'attempt.')
                     break
 
+            used_letters+=letter
 
         print('\n\n\n\n')
         key=input("Do you want to try again? If yes enter 'y' nor any other key: ")
