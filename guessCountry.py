@@ -287,6 +287,6 @@ Zimbabwe'''
         key=input("Do you want to try again? If yes enter 'y' nor any other key: ")
 
 
-print('{0:^50}'.format('_________________'))
-print('{0:<16}{1}'.format('','You quit the game'))
-print('{0:^50}'.format('_________________'))
+print('{0:^60}'.format('_________________'))
+print('{0:^60}'.format('You quit the game'))
+print('{0:^60}'.format('_________________'))
